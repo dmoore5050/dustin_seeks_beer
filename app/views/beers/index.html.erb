@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Beers</h1>
+<h1>
+  <i class="fa fa-beer beer-icon text-success"></i>Beers
+  <% if current_admin %>
+    <%= link_to 'New Beer', new_beer_path, class: 'btn btn-outline-success btn-sm', style: 'float: right; margin-top: 7px;' %>
+  <% end %>
+</h1>
 
 <table class='sortable table table-striped table-rounded'>
   <thead>
@@ -16,22 +21,18 @@
   <tbody>
     <% beers.each do |beer| %>
       <tr id='beer-<%= beer.id %>'>
-        <td><%= beer.name %></td>
-        <td><%= beer.style %></td>
-        <td><%= beer.brewer %></td>
-        <td><%= beer.store %></td>
+        <td><%= beer.name.titleize %></td>
+        <td><%= beer.style.titleize %></td>
+        <td><%= beer.brewer.titleize %></td>
+        <td><%= beer.store.titleize %></td>
         <td><%= link_to 'Details', beer, class: 'btn btn-outline-info btn-sm'  %></td>
         <% if current_admin %>
           <td><%= link_to 'Edit', edit_beer_path(beer), class: 'btn btn-outline-primary btn-sm'  %></td>
         <% end %>
-        <td><%= link_to 'Purchase', purchase_beer_path(beer), data: { confirm: 'Are you buying a beer for Dustin?' }, remote: true, class: 'btn btn-outline-success btn-sm' %></td>
+        <td><%= link_to 'Purchase', purchase_beer_path(beer), data: { confirm: 'Are you buying a beer for Dustin?' }, remote: true, class: 'btn btn-success btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<% if current_admin %>
-  <%= link_to 'New Beer', new_beer_path %>
-<% end %>
