@@ -1,0 +1,15 @@
+
+<%= simple_form_for(@beer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :style %>
+    <%= f.input :brewer %>
+    <%= f.input :store %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
