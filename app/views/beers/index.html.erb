@@ -20,7 +20,7 @@
         <td><%= beer.style %></td>
         <td><%= beer.brewer %></td>
         <td><%= beer.store %></td>
-        <td><%= link_to 'Show', beer, class: 'btn btn-outline-info btn-sm'  %></td>
+        <td><%= link_to 'Details', beer, class: 'btn btn-outline-info btn-sm'  %></td>
         <% if current_admin %>
           <td><%= link_to 'Edit', edit_beer_path(beer), class: 'btn btn-outline-primary btn-sm'  %></td>
         <% end %>
