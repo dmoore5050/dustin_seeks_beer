@@ -1,0 +1,36 @@
+.devise-wrapper {
+  width: 288px;
+  margin: 150px auto 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 20px 32px;
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #666;
+  }
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    margin-bottom: 0;
+    color: #666;
+  }
+
+  input {
+    height: 28px;
+    width: 220px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+  }
+
+  .btn {
+    height: 40px;
+    margin-top: 15px;
+  }
+}
