@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @beers.each do |beer| %>
+    <% beers.each do |beer| %>
       <tr>
         <td><%= beer.name %></td>
         <td><%= beer.style %></td>
@@ -22,7 +22,7 @@
         <td><%= beer.store %></td>
         <td><%= link_to 'Show', beer %></td>
         <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Purchase', beer, method: :delete, data: { confirm: 'Are you buying a beer for Dustin?' } %></td>
       </tr>
     <% end %>
   </tbody>
