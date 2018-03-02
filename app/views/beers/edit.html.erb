@@ -1,6 +1,8 @@
-<h1>Editing Beer</h1>
+<p id="notice"><%= notice %></p>
+
+<h1 class='beer-header'>
+  <i class="fa fa-beer beer-icon text-success"></i>Edit <%= beer.name.titleize %>
+  <%= link_to 'Back', beers_path, class: 'btn btn-primary btn-sm', style: 'float: right; margin-top: 7px;' %>
+</h1>
 
 <%= render 'form', beer: beer %>
-
-<%= link_to 'Show', beer %> |
-<%= link_to 'Back', beers_path %>

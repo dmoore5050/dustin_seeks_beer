@@ -1,16 +1,17 @@
+<div class='beer-form-wrapper'>
+  <%= simple_form_for(beer) do |f| %>
+    <%= f.error_notification %>
 
-<%= simple_form_for(beer) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :style %>
+      <%= f.input :brewer %>
+      <%= f.input :store %>
+      <%= f.input :desc %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :style %>
-    <%= f.input :brewer %>
-    <%= f.input :store %>
-    <%= f.input :desc %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-outline-success' %>
+    </div>
+  <% end %>
+</div>
