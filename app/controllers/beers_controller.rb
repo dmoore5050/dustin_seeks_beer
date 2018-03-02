@@ -1,5 +1,7 @@
 class BeersController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:index, :show]
+
   expose(:beers) { Beer.not_deleted }
   expose(:beer, scope: beers)
   expose(:all_beers) { Beer.all }
@@ -17,14 +19,11 @@ class BeersController < ApplicationController
   end
 
   def create
-
     respond_to do |format|
       if beer.save
         format.html { redirect_to beer, notice: 'Beer was successfully created.' }
-        format.json { render :show, status: :created, location: beer }
       else
         format.html { render :new }
-        format.json { render json: beer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,14 +32,21 @@ class BeersController < ApplicationController
     respond_to do |format|
       if beer.update(beer_params)
         format.html { redirect_to beer, notice: 'Beer was successfully updated.' }
-        format.json { render :show, status: :ok, location: beer }
       else
         format.html { render :edit }
-        format.json { render json: beer.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  def purchase
+    respond_to do |format|
+      if beer.update_attribute(deleted_at: Time.zone.now)
+        format.js
+      else
+        format.js
+      end
+    end
+  end
 
   private
 

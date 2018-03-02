@@ -21,8 +21,10 @@
         <td><%= beer.brewer %></td>
         <td><%= beer.store %></td>
         <td><%= link_to 'Show', beer %></td>
-        <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-        <td><%= link_to 'Purchase', beer, method: :delete, data: { confirm: 'Are you buying a beer for Dustin?' } %></td>
+        <% if current_admin %>
+          <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
+        <% end %>
+        <td><%= link_to 'Purchase', purchase_beer_path(beer), data: { confirm: 'Are you buying a beer for Dustin?' }, remote: true %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Beer', new_beer_path %>
+<% if current_admin %>
+  <%= link_to 'New Beer', new_beer_path %>
+<% end %>
