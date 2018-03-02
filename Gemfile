@@ -39,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'jquery-datatables-rails'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'devise'

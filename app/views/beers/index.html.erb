@@ -2,7 +2,7 @@
 
 <h1>Beers</h1>
 
-<table>
+<table class='sortable table table-striped table-rounded'>
   <thead>
     <tr>
       <th>Name</th>
@@ -15,7 +15,7 @@
 
   <tbody>
     <% beers.each do |beer| %>
-      <tr>
+      <tr id='beer-<%= beer.id %>'>
         <td><%= beer.name %></td>
         <td><%= beer.style %></td>
         <td><%= beer.brewer %></td>

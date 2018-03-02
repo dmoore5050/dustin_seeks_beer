@@ -3,10 +3,14 @@ class BeersController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
 
   expose(:beers) { Beer.not_deleted }
-  expose(:beer, scope: :beers)
+  expose(:beer, scope: :not_deleted)
   expose(:all_beers) { Beer.all }
 
   def index
+    respond_to do |format|
+      format.html
+      format.json { render json: BeersDatatable.new(view_context) }
+    end
   end
 
   def show
