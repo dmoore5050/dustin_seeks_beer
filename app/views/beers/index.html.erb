@@ -20,11 +20,11 @@
         <td><%= beer.style %></td>
         <td><%= beer.brewer %></td>
         <td><%= beer.store %></td>
-        <td><%= link_to 'Show', beer %></td>
+        <td><%= link_to 'Show', beer, class: 'btn btn-outline-info btn-sm'  %></td>
         <% if current_admin %>
-          <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
+          <td><%= link_to 'Edit', edit_beer_path(beer), class: 'btn btn-outline-primary btn-sm'  %></td>
         <% end %>
-        <td><%= link_to 'Purchase', purchase_beer_path(beer), data: { confirm: 'Are you buying a beer for Dustin?' }, remote: true %></td>
+        <td><%= link_to 'Purchase', purchase_beer_path(beer), data: { confirm: 'Are you buying a beer for Dustin?' }, remote: true, class: 'btn btn-outline-success btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
 
-  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:index, :show, :purchase]
 
   expose(:beers) { Beer.not_deleted }
   expose(:beer, scope: :not_deleted)
@@ -44,7 +44,7 @@ class BeersController < ApplicationController
 
   def purchase
     respond_to do |format|
-      if beer.update_attribute(deleted_at: Time.zone.now)
+      if beer.update_attributes(deleted_at: Time.now)
         format.js
       else
         format.js
