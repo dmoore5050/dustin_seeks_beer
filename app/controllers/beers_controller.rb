@@ -3,7 +3,7 @@ class BeersController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
 
   expose(:beers) { Beer.not_deleted }
-  expose(:beer, scope: beers)
+  expose(:beer, scope: :beers)
   expose(:all_beers) { Beer.all }
 
   def index
