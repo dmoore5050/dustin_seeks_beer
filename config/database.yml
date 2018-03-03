@@ -13,3 +13,11 @@ test:
   pool: 5
   username: dmoore5050
   password: Password1
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: dustin_seeks_beer_prod
+  pool: 5
+  username: dmoore5050
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

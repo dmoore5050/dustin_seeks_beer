@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'beers#index'
+
   devise_for :admins, controllers: {
     registrations: "admins/registrations",
     confirmations: "admins/confirmations",
