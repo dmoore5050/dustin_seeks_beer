@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class='beer-header'>
-  <i class="fa fa-beer beer-icon text-success"></i><%= beer.name.titleize %>
+  <i class="fa fa-beer beer-icon text-warning"></i><%= beer.name.titleize %>
   <%= link_to 'Back', beers_path, class: 'btn btn-primary btn-sm', style: 'float: right; margin-top: 7px;' %>
   <% if current_admin %>
     <%= link_to 'Edit', edit_beer_path(beer), class: 'btn btn-outline-success btn-sm', style: 'float: right; margin-top: 7px; margin-right: 10px;' %>
@@ -16,18 +16,23 @@
     </tr>
 
     <tr>
-      <td class='beer-label'>Style:</td>
-      <td class='beer-data'><%= beer.style.titleize %></td>
-    </tr>
-
-    <tr>
       <td class='beer-label'>Brewer:</td>
       <td class='beer-data'><%= beer.brewer.titleize %></td>
     </tr>
 
     <tr>
+      <td class='beer-label'>Style:</td>
+      <td class='beer-data'><%= beer.style.titleize %></td>
+    </tr>
+
+    <tr>
       <td class='beer-label'>Store:</td>
       <td class='beer-data'><%= beer.store.titleize %></td>
+    </tr>
+
+    <tr>
+      <td class='beer-label'>URL:</td>
+      <td class='beer-data'><%= link_to 'Link', beer.link, target: '_blank', class: 'beer-url' if beer.link.present? %></td>
     </tr>
 
     <tr>
